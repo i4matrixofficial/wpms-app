@@ -20,7 +20,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFFFFB59A), Color(0xFFFFE5D8)],
+            colors: [Color.fromARGB(255, 235, 233, 231), Color(0xFFFFF0E8)],
             stops: [0.0, 1.0],
           ),
         ),
@@ -357,7 +357,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         width: double.infinity,
                         height: 60,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {Navigator.pushNamed(context, '/who-are-you');},
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFEE5F2D),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
