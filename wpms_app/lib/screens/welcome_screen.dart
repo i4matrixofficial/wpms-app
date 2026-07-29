@@ -304,7 +304,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () => Navigator.pushNamed(context, '/reset-password'),
                           child: const Text(
                             'Forgot Password?',
                             style: TextStyle(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/app_colors.dart';
-import 'onboarding_screen.dart';
 
 class LanguageScreen extends StatelessWidget {
   const LanguageScreen({super.key});
@@ -68,30 +67,56 @@ class LanguageScreen extends StatelessWidget {
                   ),
                 ),
                 const Spacer(flex: 2),
-                // Figma: Group 2 — W:360 H:234 Left:40 Radius:19 Border:1px #0F172A 10%
+                // Figma: Group 2 / Rectangle 74 — W:360 H:234 Radius:19 Border:1px #0F172A 10%
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: SizedBox(
+                  child: Container(
                     width: 360,
                     height: 234,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(19),
-                        border: Border.all(
-                          color: AppColors.dark.withOpacity(0.1),
-                          width: 1,
-                        ),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.9),
+                      borderRadius: BorderRadius.circular(19),
+                      border: Border.all(
+                        color: const Color(0x1A0F172A),
+                        width: 1,
                       ),
-                      child: Column(
-                        children: [
-                          // Header row — 234/4 = 58.5px each row
-                          Expanded(
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Row 1: Select your language
+                        SizedBox(
+                          height: 57,
+                          child: Center(
+                            child: Text(
+                              'Select your language',
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w800,
+                                fontSize: 15,
+                                height: 1.0,
+                                letterSpacing: 0,
+                                color: AppColors.dark,
+                              ),
+                            ),
+                          ),
+                        ),
+                        // Line 17 (Figma: W:300 H:1 #0F172A 10%)
+                        Container(
+                          width: 300,
+                          height: 1,
+                          color: const Color(0x260F172A),
+                        ),
+                        // Row 2: English
+                        SizedBox(
+                          height: 57,
+                          child: InkWell(
+                            onTap: () => _navigateToNext(context),
+                            borderRadius: BorderRadius.circular(8),
                             child: Center(
                               child: Text(
-                                'Select your language',
+                                'English',
                                 style: GoogleFonts.inter(
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w400,
                                   fontSize: 15,
                                   height: 1.0,
                                   letterSpacing: 0,
@@ -100,80 +125,60 @@ class LanguageScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Divider(
-                            height: 1,
-                            thickness: 1,
-                            indent: 30,
-                            endIndent: 30,
-                            color: AppColors.dark.withOpacity(0.1),
-                          ),
-                          Expanded(
-                            child: InkWell(
-                              onTap: () => _navigateToNext(context),
-                              child: Center(
-                                child: Text(
-                                  'English',
-                                  style: GoogleFonts.inter(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 15,
-                                    height: 1.0,
-                                    letterSpacing: 0,
-                                    color: AppColors.dark,
-                                  ),
+                        ),
+                        // Line 20 (Figma: W:300 H:1 #0F172A 10%)
+                        Container(
+                          width: 300,
+                          height: 1,
+                          color: const Color(0x260F172A),
+                        ),
+                        // Row 3: Sinhala
+                        SizedBox(
+                          height: 57,
+                          child: InkWell(
+                            onTap: () => _navigateToNext(context),
+                            borderRadius: BorderRadius.circular(8),
+                            child: Center(
+                              child: Text(
+                                'සිංහල',
+                                style: GoogleFonts.notoSansSinhala(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 15,
+                                  height: 1.0,
+                                  letterSpacing: 0,
+                                  color: AppColors.dark,
                                 ),
                               ),
                             ),
                           ),
-                          Divider(
-                            height: 1,
-                            thickness: 1,
-                            indent: 30,
-                            endIndent: 30,
-                            color: AppColors.dark.withOpacity(0.1),
-                          ),
-                          Expanded(
-                            child: InkWell(
-                              onTap: () => _navigateToNext(context),
-                              child: Center(
-                                child: Text(
-                                  'සිංහල',
-                                  style: GoogleFonts.notoSansSinhala(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 15,
-                                    height: 1.0,
-                                    letterSpacing: 0,
-                                    color: AppColors.dark,
-                                  ),
+                        ),
+                        // Line 21 (Figma: W:300 H:1 #0F172A 10%)
+                        Container(
+                          width: 300,
+                          height: 1,
+                          color: const Color(0x260F172A),
+                        ),
+                        // Row 4: Tamil
+                        SizedBox(
+                          height: 57,
+                          child: InkWell(
+                            onTap: () => _navigateToNext(context),
+                            borderRadius: BorderRadius.circular(8),
+                            child: Center(
+                              child: Text(
+                                'தமிழ்',
+                                style: GoogleFonts.notoSansTamil(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 15,
+                                  height: 1.0,
+                                  letterSpacing: 0,
+                                  color: AppColors.dark,
                                 ),
                               ),
                             ),
                           ),
-                          Divider(
-                            height: 1,
-                            thickness: 1,
-                            indent: 30,
-                            endIndent: 30,
-                            color: AppColors.dark.withOpacity(0.1),
-                          ),
-                          Expanded(
-                            child: InkWell(
-                              onTap: () => _navigateToNext(context),
-                              child: Center(
-                                child: Text(
-                                  'தமிழ்',
-                                  style: GoogleFonts.inter(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 15,
-                                    height: 1.0,
-                                    letterSpacing: 0,
-                                    color: AppColors.dark,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
