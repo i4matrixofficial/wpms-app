@@ -169,7 +169,11 @@ class _WhoAreYouScreenState extends State<WhoAreYouScreen> {
                   width: double.infinity,
                   height: 60,
                   child: ElevatedButton(
-                    onPressed: selected != null ? () {} : null,
+                    onPressed: selected != null
+                        ? () {
+                            Navigator.pushNamed(context, '/reset-password');
+                          }
+                        : null,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFEE5F2D),
                       disabledBackgroundColor: const Color(0xFFEE5F2D),
