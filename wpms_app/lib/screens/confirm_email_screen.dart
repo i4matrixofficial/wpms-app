@@ -172,7 +172,9 @@ class _ConfirmEmailScreenState extends State<ConfirmEmailScreen> {
                   width: double.infinity,
                   height: 60,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/create-account');
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFEE5F2D),
                       shape: RoundedRectangleBorder(
