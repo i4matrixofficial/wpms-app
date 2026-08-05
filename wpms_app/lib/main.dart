@@ -6,7 +6,8 @@ import 'screens/welcome_screen.dart';
 import 'screens/create_account_screen.dart';
 import 'screens/reset_password_screen.dart';
 import 'screens/confirm_email_screen.dart';
-import 'screens/who_are_you_screen.dart';
+import 'screens/set_new_password_screen.dart';
+import 'screens/success_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
         '/create-account': (context) => const CreateAccountScreen(),
         '/reset-password': (context) => const ResetPasswordScreen(),
         '/confirm-email': (context) => const ConfirmEmailScreen(),
-        '/who-are-you': (context) => const WhoAreYouScreen(),
+        '/set-new-password': (context) => const SetNewPasswordScreen(),
+        '/password-success': (context) => const SuccessScreen(),
       },
     );
   }
