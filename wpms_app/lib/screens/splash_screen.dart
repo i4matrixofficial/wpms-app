@@ -26,7 +26,10 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      body: Stack(please give me nst BoxDecoration(
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -56,14 +59,14 @@ class _SplashScreenState extends State<SplashScreen> {
                       height: 1.0, // Line height 100%
                       letterSpacing: 0,
                     ),
-                    children: const [
+                    children: [
                       TextSpan(
                         text: 'FIXO',
-                        style: TextStyle(color: AppColors.orange),
+                        style: const TextStyle(color: AppColors.orange),
                       ),
                       TextSpan(
                         text: 'RA',
-                        style: TextStyle(color: AppColors.dark),
+                        style: const TextStyle(color: AppColors.dark),
                       ),
                     ],
                   ),
