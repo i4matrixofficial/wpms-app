@@ -8,6 +8,7 @@ import 'screens/reset_password_screen.dart';
 import 'screens/confirm_email_screen.dart';
 import 'screens/set_new_password_screen.dart';
 import 'screens/success_screen.dart';
+import 'screens/who_are_you_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         '/onboarding': (context) => const OnboardingScreen(),
         '/welcome': (context) => const WelcomeScreen(),
         '/create-account': (context) => const CreateAccountScreen(),
+        '/who-are-you': (context) => const WhoAreYouScreen(),
         '/reset-password': (context) => const ResetPasswordScreen(),
         '/confirm-email': (context) => const ConfirmEmailScreen(),
         '/set-new-password': (context) => const SetNewPasswordScreen(),

@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/app_colors.dart';
@@ -15,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 10), () {
       if (mounted) {
         Navigator.pushReplacementNamed(context, '/language');
       }
@@ -26,7 +27,10 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      body: Stack(please give me nst BoxDecoration(
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -34,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   Color(0xFFF4A38A), // Deep salmon/coral matching Figma
                   Colors.white,
                 ],
-                stops: [0.0, 0.60],
+                stops: [0.0, 0.5],
               ),
             ),
           ),
@@ -42,10 +46,13 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Image.asset(
-                  'assets/images/logo.png',
-                  width: 133,
-                  height: 133,
+                 Transform.rotate(
+                  angle: -18.01 * math.pi / 180,
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    width: 133,
+                    height: 133,
+                  ),
                 ),
                 const SizedBox(height: 55),
                 RichText(
@@ -87,20 +94,4 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  Widget _glowCircle({required double size}) {
-    return Container(
-      width: size,
-      height: size,
-      decoration: const BoxDecoration(
-        shape: BoxShape.circle,
-        gradient: RadialGradient(
-          colors: [
-            Color(0xFFEE5F2D),
-            Color(0x00EE5F2D),
-          ],
-          stops: [0.0, 1.0],
-        ),
-      ),
-    );
-  }
 }

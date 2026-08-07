@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants/app_colors.dart';
@@ -21,18 +22,21 @@ class LanguageScreen extends StatelessWidget {
                   Color(0xFFF4A38A), // Deep salmon/coral matching Figma
                   Colors.white,
                 ],
-                stops: [0.0, 0.60],
+                stops: [0.0, 0.5],
               ),
             ),
           ),
           SafeArea(
             child: Column(
               children: [
-                const Spacer(flex: 3),
-                Image.asset(
-                  'assets/images/logo.png',
-                  width: 133,
-                  height: 133,
+                const Spacer(flex: 8),
+                 Transform.rotate(
+                  angle: -18.01 * math.pi / 180,
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    width: 133,
+                    height: 133,
+                  ),
                 ),
                 const SizedBox(height: 55),
                 RichText(
@@ -66,7 +70,7 @@ class LanguageScreen extends StatelessWidget {
                     color: AppColors.dark,
                   ),
                 ),
-                const Spacer(flex: 2),
+                const SizedBox(height: 50),
                 // Figma: Group 2 / Rectangle 74 — W:360 H:234 Radius:19 Border:1px #0F172A 10%
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -74,7 +78,7 @@ class LanguageScreen extends StatelessWidget {
                     width: 360,
                     height: 234,
                     decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.9),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(19),
                       border: Border.all(
                         color: const Color(0x1A0F172A),
@@ -102,9 +106,9 @@ class LanguageScreen extends StatelessWidget {
                         ),
                         // Line 17 (Figma: W:300 H:1 #0F172A 10%)
                         Container(
-                          width: 300,
+                          margin: const EdgeInsets.symmetric(horizontal: 30),
                           height: 1,
-                          color: const Color(0x260F172A),
+                          color: const Color(0x1A0F172A),
                         ),
                         // Row 2: English
                         SizedBox(
@@ -128,9 +132,9 @@ class LanguageScreen extends StatelessWidget {
                         ),
                         // Line 20 (Figma: W:300 H:1 #0F172A 10%)
                         Container(
-                          width: 300,
+                          margin: const EdgeInsets.symmetric(horizontal: 30),
                           height: 1,
-                          color: const Color(0x260F172A),
+                          color: const Color(0x1A0F172A),
                         ),
                         // Row 3: Sinhala
                         SizedBox(
@@ -154,9 +158,9 @@ class LanguageScreen extends StatelessWidget {
                         ),
                         // Line 21 (Figma: W:300 H:1 #0F172A 10%)
                         Container(
-                          width: 300,
+                          margin: const EdgeInsets.symmetric(horizontal: 30),
                           height: 1,
-                          color: const Color(0x260F172A),
+                          color: const Color(0x1A0F172A),
                         ),
                         // Row 4: Tamil
                         SizedBox(
@@ -182,7 +186,7 @@ class LanguageScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 35),
+                const Spacer(flex: 1),
               ],
             ),
           ),

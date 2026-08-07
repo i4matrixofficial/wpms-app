@@ -13,14 +13,14 @@ class _WhoAreYouScreenState extends State<WhoAreYouScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFE5D8),
+      backgroundColor: Colors.white,
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color.fromARGB(255, 224, 219, 217), Color(0xFFFFE5D8)],
-            stops: [0.0, 1.0],
+            colors: [Colors.white, Color(0xFFFFE5D8)],
+            stops: [0.3, 1.0],
           ),
         ),
         child: SafeArea(

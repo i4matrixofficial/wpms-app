@@ -14,14 +14,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFE5D8),
+      backgroundColor: Colors.white,
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFFFFB59A), Color(0xFFFFE5D8)],
-            stops: [0.0, 1.0],
+            colors: [Color(0xFFF4A38A), Colors.white],
+            stops: [0.0, 0.55],
           ),
         ),
         child: SafeArea(
@@ -86,9 +86,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 const SizedBox(height: 16),
 
                 // Welcome Text
-                const Text(
-                  'Welcome',
-                  style: TextStyle(
+                Text(
+                  isLogin ? 'Welcome' : 'Create account',
+                  style: const TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.w900,
                     color: Color(0xFF0F172A),
@@ -100,9 +100,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 const SizedBox(height: 4),
 
                 // Subtitle
-                const Text(
-                  'Sign in to continue to Fixora',
-                  style: TextStyle(
+                Text(
+                  isLogin ? 'Sign in to continue to Fixora' : 'Join Fixora in seconds',
+                  style: const TextStyle(
                     color: Color(0x990F172A),
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
@@ -189,6 +189,57 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         ),
                       ),
                       const SizedBox(height: 16),
+
+                      // Conditional NAME field
+                      if (!isLogin) ...[
+                        const Text(
+                          'NAME',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xCC0F172A),
+                            fontFamily: 'Inter',
+                            height: 1.3,
+                            letterSpacing: -0.32,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        TextField(
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xFF0F172A),
+                            fontFamily: 'Inter',
+                          ),
+                          decoration: InputDecoration(
+                            hintText: 'Your Name',
+                            hintStyle: const TextStyle(
+                              color: Color(0x660F172A),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Inter',
+                              letterSpacing: -0.32,
+                            ),
+                            prefixIcon: const Icon(Icons.person_outline, color: Color(0x660F172A), size: 24),
+                            filled: true,
+                            fillColor: const Color(0x1A0F172A),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: const BorderSide(color: Color(0x33FFFFFF)),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: const BorderSide(color: Color(0x33FFFFFF)),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: const BorderSide(color: Color(0xFFEE5F2D)),
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                      ],
 
                       // EMAIL label
                       const Text(
@@ -300,31 +351,39 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         ),
                       ),
 
-                      // Forgot Password
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () => Navigator.pushNamed(context, '/reset-password'),
-                          child: const Text(
-                            'Forgot Password?',
-                            style: TextStyle(
-                              color: Color(0xFFEE5F2D),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'DM Sans',
-                              height: 1.3,
-                              letterSpacing: -0.32,
+                      // Forgot Password (Only on Login)
+                      if (isLogin) ...[
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () => Navigator.pushNamed(context, '/reset-password'),
+                            child: const Text(
+                              'Forgot Password?',
+                              style: TextStyle(
+                                color: Color(0xFFEE5F2D),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: 'DM Sans',
+                                height: 1.3,
+                                letterSpacing: -0.32,
+                              ),
                             ),
                           ),
                         ),
-                      ),
+                      ] else ...[
+                        const SizedBox(height: 24), // Extra spacing when Forgot Password is not shown
+                      ],
 
                       // Sign In Button
                       SizedBox(
                         width: double.infinity,
                         height: 60,
                         child: ElevatedButton(
-                          onPressed: () => Navigator.pushNamed(context, '/create-account'),
+                          onPressed: () {
+                            if (!isLogin) {
+                              Navigator.pushNamed(context, '/who-are-you');
+                            }
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFEE5F2D),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
